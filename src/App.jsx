@@ -10,7 +10,7 @@ function App() {
     <>
     <NavBar valor={valor}/>
 
-    <ItemListContainer mensaje="un mensaje" fn={setValor}/>
+    <ItemListContainer mensaje="Listado de Productos" fn={setValor}/>
     </>
   )
 }
