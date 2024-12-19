@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import Button from '../Button/Button'
+import React, { useEffect, useState } from 'react';
+import Button from '../Button/Button';
 import ItemList from './ItemList';
 import { getProducts, getProductsByCategory } from '../../data/fakedatabase';
 
-const ItemListContainer = ({mensaje, fn}) => {
+const ItemListContainer = (fn) => {
     const[products, setProducts] = useState([]);
     const[category, setCategory] = useState("");
     const[loading, setLoading] = useState(false);
@@ -32,15 +32,15 @@ const ItemListContainer = ({mensaje, fn}) => {
 
     return (
         <>
-            <div>
-                <div>{mensaje}</div>
+            {/*<div>
                 <Button fn={fn} text="Agregar al carrito"/>
-            </div>
+            </div>*/}
 
             <div>
-                <div>
+                <div className="flex justify-center space-x-4 mb-6">
                     <Button fn={() => changeCategory("Remeras/Tops")} text="Remeras/Tops"> </Button>
-                    <Button fn={() => changeCategory("Polleras")} text="Polleras"> </Button>
+                    <Button fn={() => changeCategory("Pantalones")} text="Pantalones"> </Button>
+                    <Button fn={() => changeCategory("Vestidos")} text="Vestidos"> </Button>
                     <Button fn={() => changeCategory("")} text="Todos"> </Button>
                 </div>
 
