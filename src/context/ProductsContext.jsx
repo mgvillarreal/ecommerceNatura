@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { getProducts, getProductsByCategory } from '../data/fakedatabase';
+/*import { getProducts } from '../firebase/firebase';*/
 
 export const ProductsContext = createContext(false);
 
