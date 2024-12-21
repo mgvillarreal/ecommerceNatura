@@ -1,10 +1,18 @@
-import React from 'react'
-import { AiOutlineShoppingCart } from 'react-icons/ai'
+import React, { useContext } from 'react';
+import { FaShoppingCart } from "react-icons/fa";
+import { CartContext } from '../../context/CartContext';
 
 const CartWidget = ({valor}) => {
+  const {cart, setCart} = useContext(CartContext);
+
+  console.log(cart);
+
   return (
     <div>
-      <AiOutlineShoppingCart />
+      <button className="hover:text-gray-400">
+        <FaShoppingCart size={30} />
+      </button>
+      <p>{cart.length}</p>
       <span>{valor}</span>
     </div>
   )

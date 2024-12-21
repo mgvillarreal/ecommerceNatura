@@ -36,7 +36,7 @@ const ItemListContainer = (fn) => {
                 <Button fn={fn} text="Agregar al carrito"/>
             </div>*/}
 
-            <div>
+            {/*<div>
                 <div className="flex justify-center space-x-4 mb-6">
                     <Button fn={() => changeCategory("Remeras/Tops")} text="Remeras/Tops"> </Button>
                     <Button fn={() => changeCategory("Pantalones")} text="Pantalones"> </Button>
@@ -48,7 +48,8 @@ const ItemListContainer = (fn) => {
                     loading ? <h2>Cargando...</h2> : <ItemList products={products}/>
                 }
 
-            </div>
+            </div>*/}
+            <p>test</p>
         </>
     )
 }

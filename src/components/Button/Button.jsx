@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-const button = ({text, fn}) => {
+const button = ({text, color, hovercolor, fn}) => {
     const [count, setCount] = useState(0)
 
     {/*const click = () => {
@@ -10,7 +10,7 @@ const button = ({text, fn}) => {
     }*/}
 
     return (
-        <button onClick={fn} className="px-4 py-2 rounded bg-rosa text-white hover:bg-bordo">
+        <button onClick={fn} className={`px-4 py-2 rounded bg-${color} text-black hover:bg-${hovercolor}`}>
             {text}
         </button>
     );

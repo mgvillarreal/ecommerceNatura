@@ -9,26 +9,35 @@ import ItemDetailPage from './pages/ItemDetailPage/ItemDetailPage';
 import FAQPage from './pages/FAQPage/FAQPage';
 import ContactPage from './pages/ContactPage/ContactPage';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
+import { ProductsProvider } from './context/ProductsContext';
+import CartWidget from './components/CartWidget/CartWidget';
+import { CartProvider } from './context/CartContext';
 
 function App() {
-  const [valor, setValor] = useState(0);
+  const [value, setValue] = useState(0);
 
   return (
     <>
-      <BrowserRouter>
-        <NavBar valor={valor}/>
+      <ProductsProvider>
+        <CartProvider>
+          <BrowserRouter>
+            <NavBar value={value}/>
 
-        <Routes>
-          <Route exact path="/" element={<HomePage/>}/>
-          <Route exact path="/shop" element={<ShopPage/>}/>
-          <Route exact path="/item/:id" element={<ItemDetailPage/>}/>
-          <Route exact path="/faq" element={<FAQPage/>}/>
-          <Route exact path="/contact" element={<ContactPage/>}/>
-          <Route exact path="/*" element={<ErrorPage/>}/>
-        </Routes>
+            <CartWidget></CartWidget>
+            
+            <Routes>
+              <Route exact path="/" element={<HomePage/>}/>
+              <Route exact path="/shop" element={<ShopPage/>}/>
+              <Route exact path="/item/:id" element={<ItemDetailPage/>}/>
+              <Route exact path="/faq" element={<FAQPage/>}/>
+              <Route exact path="/contact" element={<ContactPage/>}/>
+              <Route exact path="/*" element={<ErrorPage/>}/>
+            </Routes>
 
-        <Footer></Footer>
-      </BrowserRouter>
+            <Footer></Footer>
+          </BrowserRouter>
+        </CartProvider>
+      </ProductsProvider>
     </>
   )
 }

@@ -1,14 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProductById } from '../../data/fakedatabase';
+import { CartContext } from '../../context/CartContext';
 
 const ItemDetail = () => {
   const {id} = useParams();
-  const[product, setProduct] = useState([]);
+  const [product, setProduct] = useState([]);
+  const {cart, setCart, addToCart} = useContext(CartContext);
 
   useEffect(() => {
     setProduct(getProductById(id));
   }, []);
+
+  const handleAddToCart = () =>{
+    addToCart(product);
+  }
 
   return (
     <>
@@ -42,25 +48,22 @@ const ItemDetail = () => {
                     </div>
                 </div>*/}
 
-                {/* Botón Agregar al Carrito 
+                {/* Categoría */}
+                <p className="text-sm text-gray-500 mt-4">Categoría: {product.categoria}</p>
+
+                {/*Botón Agregar al Carrito */}
                 <div className="flex items-center space-x-4 mb-4">
-                    <input
+                    {/*<input
                         type="number"
                         min="1"
                         value={quantity}
                         onChange={(e) => setQuantity(e.target.value)}
                         className="w-16 px-2 py-1 border rounded text-center"
-                    />
-                    <button
-                        onClick={handleAddToCart}
-                        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                    >
+                    />*/}
+                    <button onClick={handleAddToCart} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                         Agregar al carrito
                     </button>
-                </div>*/}
-
-                {/* Categoría */}
-                <p className="text-sm text-gray-500 mt-4">Categoría: {product.categoria}</p>
+                </div>
             </div>
       </div>
     </>

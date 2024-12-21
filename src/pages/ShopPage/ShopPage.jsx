@@ -1,10 +1,10 @@
 import React from 'react';
-import ItemListContainer from '../../components/ItemListContainer/ItemListContainer';
+import ItemList from '../../components/ItemListContainer/ItemList';
 
 const ShopPage = () => {
   return (
     <div className="container mx-auto py-8">
-      <ItemListContainer/>
+      <ItemList></ItemList>
     </div>
   );
 }

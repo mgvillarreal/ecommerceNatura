@@ -11,7 +11,7 @@ const NavBar = ({valor}) => {
         {/* Logo */}
         <div>
           <Link to="/">
-            <img src={logo} alt="Natura Logo" width="100px"/>
+            <img src={logo} alt="Natura Logo" width="95px"/>
           </Link>
         </div>
 
@@ -31,7 +31,7 @@ const NavBar = ({valor}) => {
             <FaSearch size={20} />
           </button>
           <button className="hover:text-gray-400">
-            <FaShoppingCart size={20} />
+            <FaShoppingCart size={30} />
           </button>
         </div>
       </div>
