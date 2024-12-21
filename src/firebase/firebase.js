@@ -57,7 +57,7 @@ export async function getProducts(){
 
 export async function getProductsByCategory(category){
     try{
-        const filteredQuery = query( collection(db, 'products'), where('category', '=', category) );
+        const filteredQuery = query( collection(db, 'products'), where('category', '==', category) );
 
         const querySnapshot = await getDocs(filteredQuery);
         if(querySnapshot.size !== 0){

@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { getProducts, getProductsByCategory } from '../data/fakedatabase';
-/*import { getProducts } from '../firebase/firebase';*/
+import { getProducts, getProductsByCategory } from '../firebase/firebase';
 
 export const ProductsContext = createContext(false);
 
@@ -10,19 +9,27 @@ export function ProductsProvider({children}){
     const [category, setCategory] = useState("");
 
     useEffect(() => {
-        setLoading(true);
-        
-        if(category){
-            getProductsByCategory(category)
-            .then(res => setProducts(res))
-            .catch(err => console.error(err))
-            .finally(() => setLoading(false))
-        }else{
-            getProducts()
-            .then(res => setProducts(res))
-            .catch(err => console.error(err))
-            .finally(() => setLoading(false))
-        }
+        const fetchProducts = async () => {
+            setLoading(true);
+
+            if(category){
+                const productsList = await getProductsByCategory(category)
+                if (productsList){
+                    setProducts(productsList);
+                    setLoading(false);
+                }
+                setLoading(false);
+            } else {
+                const productsList = await getProducts();
+                if (productsList) {
+                setProducts(productsList);
+                }
+                setLoading(false);
+            }
+
+        };
+    
+        fetchProducts();
     }, [category]);
 
     const changeCategory = (category) => {
