@@ -13,7 +13,7 @@ export function ProductsProvider({children}){
             setLoading(true);
 
             if(category){
-                const productsList = await getProductsByCategory(category)
+                const productsList = await getProductsByCategory(category);
                 if (productsList){
                     setProducts(productsList);
                     setLoading(false);
@@ -27,6 +27,11 @@ export function ProductsProvider({children}){
                 setLoading(false);
             }
 
+            /*const productsList = await getThreeProducts();
+            if (productsList){
+                setProducts(productsList);
+                setLoading(false);
+            }*/
         };
     
         fetchProducts();

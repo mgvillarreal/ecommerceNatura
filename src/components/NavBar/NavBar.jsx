@@ -4,7 +4,7 @@ import CartWidget from '../CartWidget/CartWidget';
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import logo from '../../assets/images/logoNatura.png';
 
-const NavBar = ({valor}) => {
+const NavBar = () => {
   return (
     <nav className="bg-rosaMedio text-white">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -15,7 +15,7 @@ const NavBar = ({valor}) => {
           </Link>
         </div>
 
-        {/* Enlaces e íconos */}
+        {/* Links and icons */}
         <div className="flex items-center space-x-6">
           <div className="text-lg font-bold hover:text-gray-400">
             <Link to="/shop">Shop</Link>
@@ -27,12 +27,10 @@ const NavBar = ({valor}) => {
             <Link to="/contact">Contacto</Link>
           </div>
 
-          <button className="hover:text-gray-400">
+          <button>
             <FaSearch size={20} />
           </button>
-          <button className="hover:text-gray-400">
-            <FaShoppingCart size={30} />
-          </button>
+          <CartWidget/>
         </div>
       </div>
     </nav>

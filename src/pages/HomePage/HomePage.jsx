@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaCoins, FaTruck, FaShoppingBag } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import Button from '../../components/Button/Button';
 
 const HomePage = () => {
   return (
@@ -13,7 +12,7 @@ const HomePage = () => {
           <h2 className="text-4xl font-bold mb-4">Nueva Colección</h2>
 
           <Link to="/shop">
-            <Button text="Comprar" color="rosaMedio" hovercolor="rosa"> </Button>
+            <button className="px-4 py-2 bg-rosaMedio text-white font-bold rounded-md hover:bg-bordo"> Comprar </button>
           </Link>
         
         </div>

@@ -22,8 +22,6 @@ function App() {
         <CartProvider>
           <BrowserRouter>
             <NavBar value={value}/>
-
-            <CartWidget></CartWidget>
             
             <Routes>
               <Route exact path="/" element={<HomePage/>}/>

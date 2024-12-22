@@ -15,7 +15,7 @@ const ItemList = () => {
   return (
     <>
       <div className="flex justify-center space-x-4 mb-6">
-        <Button fn={() => changeCategory("Remeras/Tops")} text="Remeras/Tops" hovercolor="rosa"> </Button>
+        <Button fn={() => changeCategory("Remeras/Tops")} text="Remeras/Tops" color="rosa"> </Button>
         <Button fn={() => changeCategory("Pantalones")} text="Pantalones" color="rosa"> </Button>
         <Button fn={() => changeCategory("Vestidos")} text="Vestidos" color="rosa"> </Button>
         <Button fn={() => changeCategory("")} text="Todos" color="rosa"> </Button>

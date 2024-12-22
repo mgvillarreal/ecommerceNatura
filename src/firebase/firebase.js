@@ -30,7 +30,7 @@ export async function getProductById(id){
         }
     }
     catch (error){
-        console.error('Error getting the document: ', error);
+        console.error('Error fetching the document: ', error);
     }
 }
 
@@ -51,7 +51,7 @@ export async function getProducts(){
         }
     }
     catch (error){
-        console.error('Error getting the collection: ', error);
+        console.error('Error fetching the collection: ', error);
     }
 }
 
@@ -74,6 +74,28 @@ export async function getProductsByCategory(category){
         }
     }
     catch (error){
-        console.error('Error getting the document: ', error);
+        console.error('Error fetching the document: ', error);
     }
 }
+
+/*export async function getThreeProducts(){
+    try {
+        const productsQuery = query( collection(db, 'products'), limit(3) );
+
+        const querySnapshot = await getDocs(productsQuery);
+        if (!querySnapshot.empty){
+            const productsList = querySnapshot.docs.map((docu) => ({
+            id: docu.id,
+            ...docu.data(),
+        }
+        ));
+        return productsList;
+      }
+      else {
+        console.log("No products found");
+      }
+    }
+    catch (error){
+        console.error("Error fetching three products: ", error);
+    }
+}*/
