@@ -2,12 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import { getProductById } from '../../firebase/firebase';
+import ItemCount from './ItemCount';
 
 const ItemDetail = () => {
     const {id} = useParams();
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
     const {cart, setCart, addToCart} = useContext(CartContext);
+    const [addedToCart, setAddedToCart] = useState(false);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -20,17 +22,18 @@ const ItemDetail = () => {
         }
 
         fetchProducts();
-    }, []);
+    }, [id]);
 
-    const handleAddToCart = () =>{
-        addToCart(product);
+    const handleAddToCart = (quantity) =>{
+        addToCart(product, quantity);
+        setAddedToCart(true);
     }
+
+    if (loading) return <p>Cargando productos...</p>;
 
     return (
         <>
             <div className="border rounded-md p-4 flex items-start gap-4 max-w-4xl mx-auto">
-
-                {/*if (loading) return <p>Cargando productos...</p>;*/}
           
                 <img src={`/${product.image}`} alt={product.name} width="280px" className="object-cover rounded-md"/>
 
@@ -40,11 +43,15 @@ const ItemDetail = () => {
                     <p className="text-gray-700 text-base">{product.description}</p>
                     <p className="text-gray-600 text-sm">Categoría: {product.category}</p>
                     
-                    {/* Add to cart */}
+                    {/* Display ItemCount or success message */}
                     <div className="flex gap-4 mt-4 pt-8">
-                        <button onClick={handleAddToCart} className="px-4 py-2 bg-bordo text-white font-bold rounded-md hover:bg-bordo-dark">
-                            Agregar al carrito
-                        </button>
+                        {!addedToCart ? (
+                            <ItemCount stock={product.stock} initial={0} onAdd={handleAddToCart} />
+                        ) : (
+                            <div className="py-2 text-rosaMedio text-lg font-bold rounded-md">
+                                Producto agregado al carrito
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
