@@ -39,6 +39,6 @@ Some images of how this website looks like.
 ![Screenshot of My Project](/public/readme/natura3.png "Cart Page") 
 
 ### Authors
-I did this project for educational purposes as a Final Project for the [CoderHouse](https://www.coderhouse.com/ar/) JavaScript course.
+I did this project for educational purposes as a Final Project for the [CoderHouse](https://www.coderhouse.com/ar/) ReactJs course.
 
 **María Gabriela Villarreal** [GitHub Profile](https://github.com/mgvillarreal).
