@@ -10,8 +10,8 @@ import FAQPage from './pages/FAQPage/FAQPage';
 import ContactPage from './pages/ContactPage/ContactPage';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import { ProductsProvider } from './context/ProductsContext';
-import CartWidget from './components/CartWidget/CartWidget';
 import { CartProvider } from './context/CartContext';
+import CartPage from './pages/CartPage/CartPage';
 
 function App() {
   const [value, setValue] = useState(0);
@@ -29,6 +29,7 @@ function App() {
               <Route exact path="/item/:id" element={<ItemDetailPage/>}/>
               <Route exact path="/faq" element={<FAQPage/>}/>
               <Route exact path="/contact" element={<ContactPage/>}/>
+              <Route exact path="/cart" element={<CartPage/>}/>
               <Route exact path="/*" element={<ErrorPage/>}/>
             </Routes>
 

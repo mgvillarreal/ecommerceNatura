@@ -6,9 +6,9 @@ import ItemCount from './ItemCount';
 
 const ItemDetail = () => {
     const {id} = useParams();
-    const [product, setProduct] = useState([]);
+    const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(false);
-    const {cart, setCart, addToCart} = useContext(CartContext);
+    const {addToCart} = useContext(CartContext);
     const [addedToCart, setAddedToCart] = useState(false);
 
     useEffect(() => {
@@ -25,7 +25,8 @@ const ItemDetail = () => {
     }, [id]);
 
     const handleAddToCart = (quantity) =>{
-        addToCart(product, quantity);
+        const updatedProduct = { ...product, id: id, quantity: quantity };
+        addToCart(updatedProduct, quantity);
         setAddedToCart(true);
     }
 
@@ -46,7 +47,7 @@ const ItemDetail = () => {
                     {/* Display ItemCount or success message */}
                     <div className="flex gap-4 mt-4 pt-8">
                         {!addedToCart ? (
-                            <ItemCount stock={product.stock} initial={0} onAdd={handleAddToCart} />
+                            <ItemCount stock={product.stock} initial={1} onAdd={handleAddToCart} />
                         ) : (
                             <div className="py-2 text-rosaMedio text-lg font-bold rounded-md">
                                 Producto agregado al carrito
@@ -59,4 +60,4 @@ const ItemDetail = () => {
     );
 }
 
-export default ItemDetail
+export default ItemDetail;

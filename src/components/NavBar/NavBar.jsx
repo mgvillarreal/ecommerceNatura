@@ -30,7 +30,9 @@ const NavBar = () => {
           <button>
             <FaSearch size={20} />
           </button>
-          <CartWidget/>
+          <Link to="/cart">
+            <CartWidget/>
+          </Link>
         </div>
       </div>
     </nav>

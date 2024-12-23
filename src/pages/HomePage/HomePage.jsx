@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
-    <div>
+    <>
       {/* Background image */}
       <div className="relative h-[90vh] homeBackground bg-cover bg-center" style={{ backgroundImage: "url('/homebg.png')" }}>
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white">
@@ -18,21 +18,8 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Products */}
-      <section className="container mx-auto py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
-        {Array(4).fill().map((_, index) => (
-          <div key={index} className="text-center">
-            <img src={`/ruta-imagen-${index + 1}.jpg`} alt={`Producto ${index + 1}`} className="w-full h-40 object-cover rounded-md mb-2" />
-            <button className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded">VER</button>
-          </div>
-        ))}
-      </section>
-      <div className="text-center py-4">
-        <button className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded">Ver todos los productos</button>
-      </div>
-
       {/* Info section */}
-      <section className="bg-gray-100 py-8">
+      <section className="bg-gray-100 py-8 h-96 flex items-center">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           
           <div className="flex flex-col items-center py-4">
@@ -54,7 +41,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }
 
