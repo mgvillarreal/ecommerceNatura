@@ -26,12 +26,6 @@ export function ProductsProvider({children}){
                 }
                 setLoading(false);
             }
-
-            /*const productsList = await getThreeProducts();
-            if (productsList){
-                setProducts(productsList);
-                setLoading(false);
-            }*/
         };
     
         fetchProducts();

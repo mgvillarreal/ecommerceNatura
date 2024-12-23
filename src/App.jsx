@@ -12,6 +12,7 @@ import ErrorPage from './pages/ErrorPage/ErrorPage';
 import { ProductsProvider } from './context/ProductsContext';
 import { CartProvider } from './context/CartContext';
 import CartPage from './pages/CartPage/CartPage';
+import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
 
 function App() {
   const [value, setValue] = useState(0);
@@ -24,12 +25,14 @@ function App() {
             <NavBar value={value}/>
             
             <Routes>
-              <Route exact path="/" element={<HomePage/>}/>
-              <Route exact path="/shop" element={<ShopPage/>}/>
+              <Route exact path="/home" element={<HomePage/>}/>
+              <Route exact path="/" element={<ShopPage/>}/>
               <Route exact path="/item/:id" element={<ItemDetailPage/>}/>
+              <Route exact path="/category/:category" element={<ShopPage/>}/>
               <Route exact path="/faq" element={<FAQPage/>}/>
               <Route exact path="/contact" element={<ContactPage/>}/>
               <Route exact path="/cart" element={<CartPage/>}/>
+              <Route exact path="/checkout" element={<CheckoutPage/>}/>
               <Route exact path="/*" element={<ErrorPage/>}/>
             </Routes>
 

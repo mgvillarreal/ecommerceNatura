@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import { getProductById } from '../../firebase/firebase';
 import ItemCount from './ItemCount';
+import ReactLoading from 'react-loading';
 
 const ItemDetail = () => {
     const {id} = useParams();
@@ -30,13 +31,20 @@ const ItemDetail = () => {
         setAddedToCart(true);
     }
 
-    if (loading) return <p>Cargando productos...</p>;
+    if (loading) {
+        return (
+          <div className="flex justify-center items-center h-auto">
+            <ReactLoading type="spin" color="#ce9eb3" height={50} width={50} />
+            <p className="ml-3 font-medium">Cargando productos...</p>
+          </div>
+        );
+    }
 
     return (
         <>
             <div className="border rounded-md p-4 flex items-start gap-4 max-w-4xl mx-auto">
           
-                <img src={`/${product.image}`} alt={product.name} width="280px" className="object-cover rounded-md"/>
+                <img src={product.image} alt={product.name} width="280px" className="object-cover rounded-md"/>
 
                 <div className="w-2/3 flex flex-col items-start gap-2 pl-8">
                     <h1 className="font-bold text-3xl">{product.name}</h1>

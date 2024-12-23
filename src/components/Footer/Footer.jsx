@@ -8,17 +8,15 @@ const Footer = () => {
     <footer className="bg-rosaMedio text-white py-8">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
             
-            {/* Logo */}
             <div className="mb-6 md:mb-0">
-                <Link to="/">
+                <Link to="/home">
                     <img src={logo} alt="Natura Logo" width="80px"/>
                 </Link>
             </div>
 
-            {/* Enlaces */}
             <div className="flex space-x-6 mb-6 md:mb-0">
                 <div className="font-bold hover:text-gray-400">
-                    <Link to="/shop">Shop</Link>
+                    <Link to="/">Shop</Link>
                 </div>
                 <div className="font-bold hover:text-gray-400">
                     <Link to="/faq">FAQ</Link>
@@ -28,7 +26,6 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Redes Sociales */}
             <div className="flex space-x-4">
                 <a href="https://www.instagram.com" target="_blank" className="hover:text-gray-400">
                     <FaInstagram className="text-xl" />
@@ -42,7 +39,6 @@ const Footer = () => {
             </div>
         </div>
 
-        {/* Derechos Reservados */}
         <div className="mt-8 text-center text-gray-500 border-t border-gray-700 pt-4">
             © {new Date().getFullYear()} Natura Boutique. Todos los derechos reservados.
         </div>

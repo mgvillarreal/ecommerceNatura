@@ -78,24 +78,12 @@ export async function getProductsByCategory(category){
     }
 }
 
-/*export async function getThreeProducts(){
+export async function sendOrder(order){
+    const ordersCollection = collection(db, 'orders');
     try {
-        const productsQuery = query( collection(db, 'products'), limit(3) );
-
-        const querySnapshot = await getDocs(productsQuery);
-        if (!querySnapshot.empty){
-            const productsList = querySnapshot.docs.map((docu) => ({
-            id: docu.id,
-            ...docu.data(),
-        }
-        ));
-        return productsList;
-      }
-      else {
-        console.log("No products found");
-      }
+      const docRef = await addDoc(ordersCollection, order);
+      return docRef.id;
+    } catch (error) {
+      console.error('Error adding new document: ', error);
     }
-    catch (error){
-        console.error("Error fetching three products: ", error);
-    }
-}*/
+}

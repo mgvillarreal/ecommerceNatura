@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { FaTrashAlt } from "react-icons/fa";
 import Button from '../Button/Button';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
     const { cart, removeFromCart, clearCart } = useContext(CartContext);
@@ -19,7 +20,7 @@ const Cart = () => {
                         {cart.map((item) => (
                             <div key={item.id} className="flex justify-between items-center border-b py-4">
                                 <div className="flex items-center gap-4">
-                                    <img src={`/${item.image}`} alt={item.name} className="w-20 h-20 object-cover rounded-md"/>
+                                    <img src={item.image} alt={item.name} className="w-20 h-20 object-cover rounded-md"/>
                                     <div>
                                         <h2 className="font-bold">{item.name}</h2>
                                         <p className="text-sm text-gray-600">Categoría: {item.category}</p>
@@ -36,9 +37,13 @@ const Cart = () => {
                             </div>
                         ))}
                     </div>
+
+                    <h2 className="text-xl font-bold my-4 pb-4">Total: ${total}</h2>
                     <div className="mt-4 flex justify-between items-center">
-                        <h2 className="text-xl font-bold">Total: ${total}</h2>
-                        <Button fn={clearCart} text="Vaciar carrito" color="rosa"> </Button>
+                        <Button fn={clearCart} text="Vaciar carrito" color="lila"> </Button>
+                        <Link to="/checkout">
+                            <Button text="Finalizar compra" color="rosa"> </Button>
+                        </Link>
                     </div>
                 </>
             )}
