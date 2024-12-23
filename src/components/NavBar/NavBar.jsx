@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget';
-import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import logo from '../../assets/images/logoNatura.png';
 
 const NavBar = () => {
@@ -27,9 +26,6 @@ const NavBar = () => {
             <Link to="/contact">Contacto</Link>
           </div>
 
-          <button>
-            <FaSearch size={20} />
-          </button>
           <Link to="/cart">
             <CartWidget/>
           </Link>
