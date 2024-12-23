@@ -7,25 +7,23 @@
 A web application designed for managing a clothing e-commerce platform. This project features a dynamic product catalog, a shopping cart, and essential e-commerce functionalities.
 
 ### Technologies Used
-1. Frontend: React, Tailwind CSS
-2. Icons: React Icons
-3. Routing: React Router
+1. **Frontend**: ReactJs
+2. **Cloud Service**: Firebase
 
 ### Libraries Used
-1. **React Loading**: A library to show loading indicators (spinners) while the application is fetching data or performing asynchronous tasks.
-2. **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+1. **Tailwind CSS**: v3.4.16
+2. **Icon React**: v5.3.0
+3. **React Router**: v18.3.1
+4. **React Loading**: v2.0.3
 
 ### Installation
 1. Clone this repository to your local machine: `git clone https://github.com/mgvillarreal/ecommerceNatura.git`
 2. Navigate to the project directory: `cd ecommerceNatura`
 3. Install dependencies: `npm install`
-4. Start the development server: `npm start`
+4. Start the development server: `npm run dev`
 
 ### How to View the Project
 You can visit the deployed repository: 
-
-### How to Contribute
-Contributions are not currently being accepted for this project.
 
 ### Images
 Some images of how this website looks like.

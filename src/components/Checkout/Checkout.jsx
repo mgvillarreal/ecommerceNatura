@@ -1,48 +1,66 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
-import CheckoutPage from "./CheckoutPage";
-import { db } from "../../firebase/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { sendOrder } from '../../firebase/firebase';
+
 
 const Checkout = () => {
-  const { cart, total } = useContext(CartContext);
+    const { cart, total } = useContext(CartContext);
+    const [userInfo, setUserInfo] = useState({
+      name: "",
+      email: "",
+      phone: "",
+    });
 
-  const handleCheckoutSubmit = async (formData) => {
-    const order = {
-      user: formData,
-      items: cart,
-      total,
-      date: new Date(),
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setUserInfo({
+        ...userInfo,
+        [name]: value,
+      });
     };
 
-    console.log("orden: ", order);
+    const handleSubmit = async (e) => {
+      const order = {
+        user: userInfo,
+        items: cart,
+        /*total,*/
+        date: new Date(),
+      };
 
-    /*try {
-      const docRef = await addDoc(collection(db, "orders"), order);
-      alert(`Order placed successfully! Order ID: ${docRef.id}`);
-    } catch (error) {
-      console.error("Error placing order: ", error);
-      alert("Error placing your order. Please try again.");
-    }*/
-  };
+      e.preventDefault();
+      console.log("orden: ", order);
+      sendOrder(order);
+    };
 
   return (
-    <div>
-      {/*<h1 className="text-center text-3xl font-bold mb-8">Your Order</h1>
-      <ul className="space-y-4">
-        {cart.map((item) => (
-          <li
-            key={item.id}
-            className="flex justify-between items-center bg-white shadow p-4 rounded-md"
-          >
-            <span>{item.name}</span>
-            <span>{item.quantity} x ${item.price}</span>
-          </li>
-        ))}
-      </ul>
-      <div className="text-right font-bold text-xl mt-4">Total: ${total}</div>*/}
-      <CheckoutPage onSubmit={handleCheckoutSubmit} />
-    </div>
+    <section className="bg-gray-50 py-8">
+      <div className="container mx-auto max-w-md bg-white shadow-md rounded-md p-6">
+          <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">Checkout</h2>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                Nombre
+              </label>
+              <input type="text" id="name" name="name" placeholder="Nombre" className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-rosa focus:border-rosa text-gray-700" value={userInfo.name} onChange={handleInputChange} required />
+            </div>
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                Teléfono
+              </label>
+              <input type="tel" id="phone" name="phone" placeholder="Teléfono" className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-rosa focus:border-rosa text-gray-700" value={userInfo.phone} onChange={handleInputChange} required />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                Correo Electrónico
+              </label>
+              <input type="email" id="email" name="email" placeholder="Correo electrónico" className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-rosa focus:border-rosa text-gray-700" value={userInfo.email} onChange={handleInputChange} required />
+            </div>
+            <button type="submit" className="w-full bg-rosa text-white font-bold py-2 px-4 rounded-md hover:bg-rosa-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rosa" >
+              Comprar
+            </button>
+          </form>
+      </div>
+    </section>
   );
 };
 
