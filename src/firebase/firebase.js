@@ -26,11 +26,11 @@ export async function getProductById(id){
             return snapshot.data();
         }
         else{
-            console.log('Document does not exist.');
+            console.log('Product does not exist.');
         }
     }
     catch (error){
-        console.error('Error fetching the document: ', error);
+        console.error('Error fetching products by id: ', error);
     }
 }
 
@@ -47,11 +47,11 @@ export async function getProducts(){
             return productsList;
         }
         else{
-            console.log('Collection is empty');
+            console.log('Products collection is empty');
         }
     }
     catch (error){
-        console.error('Error fetching the collection: ', error);
+        console.error('Error fetching products: ', error);
     }
 }
 
@@ -70,11 +70,11 @@ export async function getProductsByCategory(category){
             return productsList;
         }
         else{
-            console.log('Collection is empty');
+            console.log('Products by category collection is empty');
         }
     }
     catch (error){
-        console.error('Error fetching the document: ', error);
+        console.error('Error fetching product by category: ', error);
     }
 }
 
@@ -84,6 +84,6 @@ export async function sendOrder(order){
       const docRef = await addDoc(ordersCollection, order);
       return docRef.id;
     } catch (error) {
-      console.error('Error adding new document: ', error);
+      console.error('Error adding new order: ', error);
     }
 }

@@ -21,6 +21,7 @@ export function CartProvider({children}){
                 // If does not existe, add one
                 return [...prevCart, { ...item}];
             }
+
         });
     };
 
