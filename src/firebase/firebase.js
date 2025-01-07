@@ -12,7 +12,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-console.log("variables: ", firebaseConfig);
 
 export async function getProductById(id){
     const documentRef = doc(db, 'products', id);
