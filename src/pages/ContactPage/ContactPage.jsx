@@ -12,18 +12,18 @@ const ContactPage = () => {
             
             <div className="mb-4">
               <label htmlFor="name" className="block text-left text-lg font-semibold text-bordo">Nombre</label>
-              <input type="text" id="name" name="name" placeholder="Tu nombre" className="w-full p-3 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rosa"
+              <input type="text" id="name" name="name" placeholder="Tu nombre" required className="w-full p-3 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rosa"
               />
             </div>
 
             <div className="mb-4">
               <label htmlFor="email" className="block text-left text-lg font-semibold text-bordo">Correo Electrónico</label>
-              <input type="email" id="email" name="email" placeholder="Tu correo electrónico" className="w-full p-3 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rosa"/>
+              <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required className="w-full p-3 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rosa"/>
             </div>
 
             <div className="mb-4">
               <label htmlFor="message" className="block text-left text-lg font-semibold text-bordo">Mensaje</label>
-              <textarea id="message" name="message" rows="4" placeholder="Escribe tu mensaje..." className="w-full p-3 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rosa">
+              <textarea id="message" name="message" rows="4" placeholder="Escribe tu mensaje..." required className="w-full p-3 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rosa">
               </textarea>
             </div>
 

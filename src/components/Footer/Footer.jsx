@@ -16,7 +16,7 @@ const Footer = () => {
 
             <div className="flex space-x-6 mb-6 md:mb-0">
                 <div className="font-bold hover:text-gray-400">
-                    <Link to="/">Shop</Link>
+                    <Link to="/shop">Shop</Link>
                 </div>
                 <div className="font-bold hover:text-gray-400">
                     <Link to="/faq">FAQ</Link>

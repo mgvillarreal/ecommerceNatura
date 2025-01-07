@@ -22,11 +22,11 @@ function App() {
       <ProductsProvider>
         <CartProvider>
           <BrowserRouter>
-            <NavBar value={value}/>
+            <NavBar/>
             
             <Routes>
               <Route exact path="/home" element={<HomePage/>}/>
-              <Route exact path="/" element={<ShopPage/>}/>
+              <Route exact path="/shop" element={<ShopPage/>}/>
               <Route exact path="/item/:id" element={<ItemDetailPage/>}/>
               <Route exact path="/category/:category" element={<ShopPage/>}/>
               <Route exact path="/faq" element={<FAQPage/>}/>
