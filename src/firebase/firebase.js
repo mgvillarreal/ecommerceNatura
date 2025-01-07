@@ -1,20 +1,16 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, getDoc, getDocs, collection, query, where, addDoc, updateDoc, writeBatch } from "firebase/firestore";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCuWm4LASV3wWzwnJRf0i2KrJv3H_D-JHY",
-  authDomain: "naturaecommerce-60f9b.firebaseapp.com",
-  projectId: "naturaecommerce-60f9b",
-  storageBucket: "naturaecommerce-60f9b.firebasestorage.app",
-  messagingSenderId: "945341105273",
-  appId: "1:945341105273:web:a4347e4584e39f408040a8"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
 
 export async function getProductById(id){

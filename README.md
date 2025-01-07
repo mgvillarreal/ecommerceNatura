@@ -26,7 +26,7 @@ A web application designed for managing a clothing e-commerce platform. This pro
 You can visit the deployed repository: 
 
 ### Images
-Some images of how this website looks like.
+Some images of how this website looks like:
 
 ![Screenshot of My Project](/public/readme/natura4.png "Home Page")
 
