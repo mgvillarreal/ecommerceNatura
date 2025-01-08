@@ -42,18 +42,18 @@ const ItemDetail = () => {
 
     return (
         <>
-            <div className="border rounded-md p-4 flex items-start gap-4 max-w-4xl mx-auto">
+            <div className="border rounded-md p-4 flex flex-col md:flex-row items-start gap-6 max-w-4xl mx-auto">
           
-                <img src={product.image} alt={product.name} width="280px" className="object-cover rounded-md"/>
+                <img src={product.image} alt={product.name} className="w-full md:w-56 object-cover rounded-md max-w-full h-auto"/>
 
-                <div className="w-2/3 flex flex-col items-start gap-2 pl-8">
-                    <h1 className="font-bold text-3xl">{product.name}</h1>
-                    <p className="text-gray-600 text-xl">${product.price}</p>
-                    <p className="text-gray-700 text-base">{product.description}</p>
-                    <p className="text-gray-600 text-sm">Categoría: {product.category}</p>
+                <div className="w-full md:w-2/3 flex flex-col items-start gap-4 pl-0 md:pl-8 text-center md:text-left">
+                    <h1 className="font-bold text-2xl md:text-3xl">{product.name}</h1>
+                    <p className="text-gray-600 text-lg md:text-xl">${product.price}</p>
+                    <p className="text-gray-700 text-sm md:text-base">{product.description}</p>
+                    <p className="text-gray-600 text-xs md:text-sm">Categoría: {product.category}</p>
                     
                     {/* Display ItemCount or success message */}
-                    <div className="flex gap-4 mt-4 pt-8">
+                    <div className="flex justify-center md:justify-start gap-4 mt-4 pt-4">
                         {!addedToCart ? (
                             <ItemCount stock={product.stock} initial={1} onAdd={handleAddToCart} />
                         ) : (

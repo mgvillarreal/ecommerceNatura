@@ -32,7 +32,7 @@ const ErrorPage = () => {
         </p>
 
         <div className="mt-6">
-          <Link to="/">
+          <Link to="/home">
             <button className="px-4 py-2 bg-rosa text-white rounded-md hover:bg-bordo"> Volver al inicio </button>
           </Link>
         </div>

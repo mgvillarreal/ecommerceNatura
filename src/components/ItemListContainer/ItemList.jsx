@@ -24,7 +24,7 @@ const ItemList = () => {
 
   return (
     <>
-      <div className="flex justify-center space-x-4 mb-6">
+      <div className="flex justify-center flex-wrap gap-2 mb-6">
         <Link to={'/category/remerastops'}>
           <Button fn={() => changeCategory("Remeras/Tops")} text="Remeras/Tops" color="rosa"> </Button>
         </Link>
@@ -34,12 +34,12 @@ const ItemList = () => {
         <Link to={'/category/vestidos'}>
           <Button fn={() => changeCategory("Vestidos")} text="Vestidos" color="rosa"> </Button>
         </Link>
-        <Link to={'/'}>
+        <Link to={'/shop'}>
           <Button fn={() => changeCategory("")} text="Todos" color="rosa"> </Button>
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 gap-y-8">
         {products.map((product, id) => {
           return (
             <Item product={product} key={id}/>

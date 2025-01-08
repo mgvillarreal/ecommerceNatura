@@ -75,7 +75,7 @@ const Checkout = () => {
             <p className="text-sm text-gray-500">ID de la compra:</p>
             <p id="purchase-id" className="text-xl font-bold text-gray-800">{checkoutId}</p>
           </div>
-          <Link to="/">
+          <Link to="/shop">
             <button className="w-full bg-rosa text-white font-bold py-2 px-4 mt-6 rounded-md" >
               Volver a la tienda
             </button>
